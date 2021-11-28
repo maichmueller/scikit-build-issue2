@@ -9,8 +9,8 @@ target_include_directories(mymodule PUBLIC src/libmymodule)
 
 
 set(PYBIND11_FINDPYTHON TRUE)
-find_package(pybind11 CONFIG PATHS ${pybind11_SEARCH_PATH} REQUIRED)
-#add_subdirectory(pybind11)
+#find_package(pybind11 CONFIG PATHS ${pybind11_SEARCH_PATH} REQUIRED)
+add_subdirectory(pybind11)
 
 pybind11_add_module(_pkg src/pkg/module.cpp)
 set_target_properties(_pkg PROPERTIES CXX_STANDARD 17)

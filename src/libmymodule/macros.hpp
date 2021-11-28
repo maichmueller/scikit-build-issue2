@@ -17,7 +17,7 @@
 #warning "Operating system not recognized. Unexpected results might happen."
 #endif
 
-#if(OS == LINUX || OS == MAC) \
+#if(OS == LINUX || OS == MAC) && COMPILER_VERSION >= 4000 \
    && (COMPILER == ICC_COMPILER || COMPILER == GCC_COMPILER)
 #ifndef EXPORT
 #define EXPORT __attribute__((visibility("default")))
