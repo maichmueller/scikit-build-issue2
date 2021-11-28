@@ -3,12 +3,14 @@ cmake_minimum_required(VERSION 3.15)
 project(testpkg VERSION 0.1 LANGUAGES CXX)
 
 
-add_library(mymodule SHARED src/libmymodule/libheader.cpp)
+add_library(mymodule SHARED)
+target_sources(mymodule PRIVATE src/libmymodule/libheader.cpp)
 target_include_directories(mymodule PUBLIC src/libmymodule)
 
 
 set(PYBIND11_FINDPYTHON TRUE)
 find_package(pybind11 CONFIG PATHS ${pybind11_SEARCH_PATH} REQUIRED)
+#add_subdirectory(pybind11)
 
 pybind11_add_module(_pkg src/pkg/module.cpp)
 set_target_properties(_pkg PROPERTIES CXX_STANDARD 17)

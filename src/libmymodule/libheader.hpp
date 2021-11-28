@@ -3,7 +3,7 @@
 #ifndef TESTPKG_LIBHEADER_HPP
 #define TESTPKG_LIBHEADER_HPP
 
-class MyLibClass {
+class __declspec(dllexport) MyLibClass {
   void f();
 };
 
