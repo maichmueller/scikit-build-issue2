@@ -23,7 +23,15 @@
 #define LOCAL
 #endif
 
-class __declspec(dllexport) MyLibClass {
+#if ! defined(BUILD_STATIC) && ! defined(IMPORT_LIBRARY)
+#define API EXPORT
+#elif defined(IMPORT_LIBRARY)
+#define API IMPORT
+#else
+#define API
+#endif
+
+class API MyLibClass {
   void f();
 };
 
